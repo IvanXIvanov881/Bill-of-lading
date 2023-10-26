@@ -17,6 +17,11 @@ public class Repo implements Repostory{
     }
 
     @Override
+    public void removeBillOfLading(WayBill wayBill) {
+        wayBills.remove(wayBill);
+    }
+
+    @Override
     public Collection<WayBill> getAllWaybills() {
         return this.wayBills;
     }

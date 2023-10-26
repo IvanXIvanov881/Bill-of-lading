@@ -25,38 +25,45 @@ public class main {
                     System.out.println("Изберете: 2 за нечуплив товар");
                     System.out.println("__________________________________________");
                     String fragileOrNot = scanner.nextLine();
-
                     if (fragileOrNot.equals("1")) {
                         System.out.println("Номер на товарителница, килограми, обем, изпратена от кой град, адресирана до кой град.");
                         System.out.println("(Пример: A1234h 12.5 20 Русе Варна)");
                         System.out.println("__________________________________________");
                         String[] input = scanner.nextLine().split("\\s+");
-                        String firstNum = input[1];
-                        String secondNum = input[2];
-
-                        if (isDouble(firstNum) && isDouble(secondNum)) {
-                            WayBill wayBill = new FragileLoad(input[0], Double.parseDouble(input[1]), Double.parseDouble(input[2]), input[3], input[4]);
-                            controller.addWayBillToRepo(wayBill);
-                            System.out.printf("Вие успешно въведохте товарителница N:%s!%n",input[0]);
-                            System.out.println("__________________________________________");
+                        if (input.length == 5) {
+                            String firstNum = input[1];
+                            String secondNum = input[2];
+                            if (isDouble(firstNum) && isDouble(secondNum)) {
+                                WayBill wayBill = new FragileLoad(input[0], Double.parseDouble(input[1]), Double.parseDouble(input[2]), input[3], input[4]);
+                                controller.addWayBillToRepo(wayBill);
+                                System.out.printf("Вие успешно въведохте товарителница N:%s!%n", input[0]);
+                                System.out.println("__________________________________________");
+                            } else {
+                                System.out.println("Моля въведете на 2-ра и 3-та секция число!");
+                                System.out.println("__________________________________________");
+                            }
                         } else {
-                            System.out.println("Моля въведете на 2-ра и 3-та секция число!");
+                            System.out.println("Грешно въведени данни! Моля опитайте отново.");
                             System.out.println("__________________________________________");
                         }
-
                     } else if (fragileOrNot.equals("2")) {
                         System.out.println("Номер на товарителница, килограми, обем, изпратена от кой град, адресирана до кой град.");
                         System.out.println("(Пример: A5324h 12.5 20 Русе Варна)");
                         String[] input = scanner.nextLine().split("\\s+");
-                        String firstNum1 = input[1];
-                        String secondNum1 = input[2];
-                        if (isDouble(firstNum1) && isDouble(secondNum1)) {
-                            WayBill wayBill = new UnbreakableLoad(input[0], Double.parseDouble(input[1]), Double.parseDouble(input[2]), input[3], input[4]);
-                            controller.addWayBillToRepo(wayBill);
-                            System.out.printf("Вие успешно въведохте товарителница N:%s!%n",input[0]);
-                            System.out.println("__________________________________________");
+                        if (input.length == 5) {
+                            String firstNum1 = input[1];
+                            String secondNum1 = input[2];
+                            if (isDouble(firstNum1) && isDouble(secondNum1)) {
+                                WayBill wayBill = new UnbreakableLoad(input[0], Double.parseDouble(input[1]), Double.parseDouble(input[2]), input[3], input[4]);
+                                controller.addWayBillToRepo(wayBill);
+                                System.out.printf("Вие успешно въведохте товарителница N:%s!%n", input[0]);
+                                System.out.println("__________________________________________");
+                            } else {
+                                System.out.println("Моля въведете на 2-ра и 3-та секция число!");
+                                System.out.println("__________________________________________");
+                            }
                         } else {
-                            System.out.println("Моля въведете на 2-ра и 3-та секция число!");
+                            System.out.println("Грешно въведени данни! Моля опитайте отново.");
                             System.out.println("__________________________________________");
                         }
                     } else {
@@ -128,13 +135,13 @@ public class main {
     }
 
     private static boolean isDouble(String numberToCheck) {
-            try {
-                Double.parseDouble(numberToCheck);
-                return true;
-            } catch (NumberFormatException e) {
-                return false;
-            }
+        try {
+            Double.parseDouble(numberToCheck);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
+    }
 
     private static String getString(Scanner scanner) {
         String sb = "Моля изберете една от следните опции:" + System.lineSeparator() +

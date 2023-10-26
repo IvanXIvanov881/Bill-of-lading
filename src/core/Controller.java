@@ -22,7 +22,7 @@ public class Controller implements ControllerImp {
     public boolean removeWayBillToRepo(String codeOfWayBill) {
         for (WayBill wb : repostory.getAllWaybills()) {
             if (wb.getNumber().equals(codeOfWayBill)) {
-                repostory.getAllWaybills().remove(wb);
+                repostory.removeBillOfLading(wb);
                 return true;
             }
         }

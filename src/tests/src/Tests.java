@@ -1,5 +1,4 @@
 package tests.src;
-
 import billOfLading.FragileLoad;
 import billOfLading.WayBill;
 import core.Controller;
@@ -14,13 +13,6 @@ public class Tests {
         WayBill wayBill = new FragileLoad("A123", 20, 30, "Dobrich", "Varna");
         controller.addWayBillToRepo(wayBill);
         Assert.assertEquals(1, controller.getStatistics());
-    }
-
-    @Test (expected = ArrayIndexOutOfBoundsException.class)
-    public void testCreateEmptyBlank(){
-        Controller controller = new Controller();
-        String[] input = {""};
-        WayBill wayBill = new FragileLoad(input[0], Double.parseDouble(input[1]), Double.parseDouble(input[2]), input[3], input[4]);
     }
 
     @Test (expected = IllegalArgumentException.class)
