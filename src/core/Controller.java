@@ -1,10 +1,12 @@
 package core;
+
 import billOfLading.WayBill;
 import repostory.Repo;
 import repostory.Repostory;
+
 import static common.ExceptionMessages.INCORRECT_NUMBER;
 
-public class Controller implements ControllerImp{
+public class Controller implements ControllerImp {
 
     private Repostory repostory;
 
@@ -19,9 +21,20 @@ public class Controller implements ControllerImp{
     }
 
     @Override
+    public boolean removeWayBillToRepo(String codeOfWayBill) {
+        for (WayBill wb : repostory.getAllWaybills()) {
+            if (wb.getNumber().equals(codeOfWayBill)) {
+                repostory.getAllWaybills().remove(wb);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public WayBill getWayBill(String codeOfBill) {
-        for (WayBill wbNumber: repostory.getAllWaybills()) {
-            if (wbNumber.getNumber().equals(codeOfBill)){
+        for (WayBill wbNumber : repostory.getAllWaybills()) {
+            if (wbNumber.getNumber().equals(codeOfBill)) {
                 return wbNumber;
             }
         }
@@ -29,8 +42,8 @@ public class Controller implements ControllerImp{
     }
 
     public String getWayStatistic(String codeOfBill) {
-        for (WayBill wbNumber: repostory.getAllWaybills()) {
-            if (wbNumber.getNumber().equals(codeOfBill)){
+        for (WayBill wbNumber : repostory.getAllWaybills()) {
+            if (wbNumber.getNumber().equals(codeOfBill)) {
                 return wbNumber.getStatistics();
             }
         }
@@ -38,12 +51,32 @@ public class Controller implements ControllerImp{
     }
 
     @Override
-    public int removeWayBillFromRepo(int numberOfWayBill) {
-        return 0;
+    public boolean removeWayBillFromRepo(String numberOfWayBill) {
+        for (WayBill wb : repostory.getAllWaybills()) {
+            if (numberOfWayBill.equals(wb.getNumber())) {
+                repostory.getAllWaybills().remove(wb);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
-    public String getStatistics() {
-        return null;
+    public double sumOfAll() {
+        double fixPrice = 0.30;
+        double sumOfVolume = 0;
+        double sumOfKilograms = 0;
+        for (WayBill wbToSum: repostory.getAllWaybills()) {
+            sumOfVolume+=wbToSum.getVolume();
+            sumOfKilograms+=wbToSum.getKilograms();
+        }
+        double total=(fixPrice * (sumOfVolume + sumOfKilograms)) * 0.50;
+        return total;
+    }
+
+    @Override
+    public int getStatistics() {
+        int t = repostory.getAllWaybills().size();
+        return t;
     }
 }

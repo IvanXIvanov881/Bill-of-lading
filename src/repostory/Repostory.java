@@ -1,18 +1,17 @@
 package repostory;
-
 import billOfLading.WayBill;
+import java.util.Collection;
 
-import java.util.List;
 
 public interface Repostory {
 
     void addLadingBill(WayBill wayBill);
 
-    boolean removeLadingBill(String codeToRemove);
+    void removeLadingBill(WayBill wayBill);
 
     double getTotalVolume();
 
     double getTotalKilograms();
 
-    List<WayBill> getAllWaybills();
+    Collection<WayBill> getAllWaybills();
 }

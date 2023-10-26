@@ -7,13 +7,18 @@ public interface ControllerImp {
 
     String addWayBillToRepo(WayBill wayBill);
 
+    boolean removeWayBillToRepo(String codeOfWayBill);
+
     WayBill getWayBill(String codeOfBill);
 
-    public String getWayStatistic(String codeOfBill);
+    String getWayStatistic(String codeOfBill);
 
-    int removeWayBillFromRepo(int numberOfWayBill);
+    boolean removeWayBillFromRepo(String numberOfWayBill);
 
-    String getStatistics();
+    double sumOfAll();
+
+    int getStatistics();
+
 
 
 }

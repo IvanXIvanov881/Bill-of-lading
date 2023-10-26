@@ -2,10 +2,6 @@ import billOfLading.FragileLoad;
 import billOfLading.UnbreakableLoad;
 import billOfLading.WayBill;
 import core.Controller;
-import core.ControllerImp;
-import priceCalculator.Calculator;
-import priceCalculator.PriceCalculator;
-
 import java.util.Scanner;
 
 public class main {
@@ -25,9 +21,10 @@ public class main {
             System.out.println("2 - преглед на товарителница.");
             System.out.println("3 - проследяване на товарителница.");
             System.out.println("4 - пренасочване на товарителница.");
-            System.out.println("5 - Обща сума на всички товарителници.");
-            System.out.println("6 - изтриване на товарителница.");
-            System.out.println("7 - изход.");
+            System.out.println("5 - Обща цена на всички товарителници.");
+            System.out.println("6 - Брой създадени товарителници.");
+            System.out.println("7 - изтриване на товарителница.");
+            System.out.println("8 - изход.");
             System.out.println();
 
             String choice = scanner.nextLine();
@@ -74,20 +71,24 @@ public class main {
                     System.out.printf("Вие успешно пренасочихте товарителница номер:%s към %s%n",numberInput4,newLocation);
                     break;
                 case "5":
-                    Calculator calculator = new PriceCalculator();
-                    System.out.printf("Сума: %.2fлв.\n",calculator.sumOfAll());
+                    double totalPrice = controller.sumOfAll();
+                    System.out.printf("Сума: %.2fлв.\n",totalPrice);
                     System.out.println();
                 case "6":
+                    int totalWayBills = controller.getStatistics();
+                    System.out.printf("Брой създадени товарителници: %d.\n",totalWayBills);
+                    System.out.println();
+                case "7":
                     System.out.println("Моля въведете номер на товарителницата:");
                     String numberInput5 = scanner.nextLine();
-                   // boolean isDelete = repostory.removeLadingBill(Integer.parseInt(numberInput5));
-                   // if(isDelete){
-                    //    System.out.printf("Вие успешно изтрихте товарителница номер: %s\n",numberInput5);
-                   // } else {
+                   boolean isDelete = controller.removeWayBillFromRepo(numberInput5);
+                   if(isDelete){
+                       System.out.printf("Вие успешно изтрихте товарителница номер: %s\n",numberInput5);
+                   } else {
                         System.out.println("Итриването е неуспешно.");
-                 //   }
+                    }
                     break;
-                case "7":
+                case "8":
                     System.out.println("Изход.");
                     exit = true;
                     break;

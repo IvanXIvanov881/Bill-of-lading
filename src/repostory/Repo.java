@@ -19,14 +19,8 @@ public class Repo implements Repostory{
     }
 
     @Override
-    public boolean removeLadingBill(String codeToRemove) {
-        for (WayBill wb: wayBills) {
-            if (codeToRemove.equals(wb.getNumber())){
-                wayBills.remove(wb);
-                return true;
-            }
-        }
-        return false;
+    public void removeLadingBill(WayBill wayBill) {
+        wayBills.remove(wayBill);
     }
 
 
@@ -49,9 +43,7 @@ public class Repo implements Repostory{
     }
 
     @Override
-    public List<WayBill> getAllWaybills() {
-        List<WayBill> wbl = new ArrayList<>();
-        wbl.addAll(wayBills);
-        return wbl;
+    public Collection<WayBill> getAllWaybills() {
+        return this.wayBills;
     }
 }
