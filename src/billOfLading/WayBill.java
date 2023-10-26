@@ -2,7 +2,7 @@ package billOfLading;
 
 public interface WayBill {
 
-    int getNumber();
+    String getNumber();
 
     double getKilograms();
 

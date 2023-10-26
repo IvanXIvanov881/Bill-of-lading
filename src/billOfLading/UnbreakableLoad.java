@@ -1,7 +1,7 @@
 package billOfLading;
 
 public class UnbreakableLoad extends WayBillBase {
-    public UnbreakableLoad(int numberOfWayBill, double kilograms, double volume, String sendLocation, String toLocation) {
+    public UnbreakableLoad(String numberOfWayBill, double kilograms, double volume, String sendLocation, String toLocation) {
         super(numberOfWayBill, kilograms, volume, sendLocation, toLocation);
     }
 

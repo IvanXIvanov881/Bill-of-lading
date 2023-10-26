@@ -4,7 +4,7 @@ import static common.ExceptionMessages.INCORRECT;
 
 public abstract class WayBillBase implements WayBill {
 
-    private int numberOfWayBill;
+    private String numberOfWayBill;
 
     private double kilograms;
 
@@ -15,7 +15,7 @@ public abstract class WayBillBase implements WayBill {
     public String toLocation;
 
 
-    public WayBillBase(int numberOfWayBill, double kilograms, double volume, String sendLocation, String toLocation) {
+    public WayBillBase(String numberOfWayBill, double kilograms, double volume, String sendLocation, String toLocation) {
         setNumberOfWayBill(numberOfWayBill);
         setKilograms(kilograms);
         setVolume(volume);
@@ -24,7 +24,7 @@ public abstract class WayBillBase implements WayBill {
     }
 
     @Override
-    public int getNumber() {
+    public String getNumber() {
         return numberOfWayBill;
     }
 
@@ -54,10 +54,8 @@ public abstract class WayBillBase implements WayBill {
         this.volume = volume;
     }
 
-    protected void setNumberOfWayBill(int numberOfWayBill) {
-        if (numberOfWayBill <= 0) {
-            throw new IllegalArgumentException(INCORRECT);
-        }
+    protected void setNumberOfWayBill(String numberOfWayBill) {
+
         this.numberOfWayBill = numberOfWayBill;
     }
 
@@ -82,7 +80,7 @@ public abstract class WayBillBase implements WayBill {
         StringBuilder sb = new StringBuilder();
 
         sb.append(String.format("________________")).append(System.lineSeparator());
-        sb.append(String.format("Номер на товарителница: %d",this.numberOfWayBill)).append(System.lineSeparator());
+        sb.append(String.format("Номер на товарителница: %s",this.numberOfWayBill)).append(System.lineSeparator());
         String checkLoadType = getClass().getSimpleName();
         if (checkLoadType.equals("FragileLoad")) {
             sb.append(String.format("Вид на товара: чуплив.")).append(System.lineSeparator());

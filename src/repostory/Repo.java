@@ -1,9 +1,9 @@
 package repostory;
 
 import billOfLading.WayBill;
-
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import static common.ExceptionMessages.INCORRECT_NUMBER;
 
@@ -21,9 +21,9 @@ public class Repo implements Repostory{
     }
 
     @Override
-    public boolean removeLadingBill(int num) {
+    public boolean removeLadingBill(String num) {
         for (WayBill wb: wayBills) {
-            if (num == wb.getNumber()){
+            if (num.equals(wb.getNumber())){
                 wayBills.remove(wb);
                 return true;
             }
@@ -31,13 +31,29 @@ public class Repo implements Repostory{
         return false;
     }
 
+
     @Override
-    public WayBill getWayBill(int num) {
-        for (WayBill wb: wayBills) {
-            if (wb.getNumber() == num){
-                return wb;
-            }
+    public double getTotalVolume() {
+        double totalVolume = 0;
+        for (WayBill wbVolume: wayBills) {
+            totalVolume+=wbVolume.getVolume();
         }
-       throw new IllegalArgumentException(INCORRECT_NUMBER);
+        return totalVolume;
+    }
+
+    @Override
+    public double getTotalKilograms() {
+        double totalKilograms = 0;
+        for (WayBill wbKilograms: wayBills) {
+            totalKilograms+=wbKilograms.getKilograms();
+        }
+        return totalKilograms;
+    }
+
+    @Override
+    public List<WayBill> getAllWaybills() {
+        List<WayBill> wbl = new ArrayList<>();
+        wbl.addAll(wayBills);
+        return wbl;
     }
 }

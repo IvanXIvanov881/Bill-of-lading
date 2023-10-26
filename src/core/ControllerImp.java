@@ -1,9 +1,13 @@
 package core;
 
+import billOfLading.WayBill;
+
 public interface ControllerImp {
 
 
-    String addWayBillToRepo(int numberOfWayBill,double kilograms,String currentLocation,String toLocation);
+    String addWayBillToRepo(WayBill wayBill);
+
+    String getWayBill(String codeOfBill);
 
     int removeWayBillFromRepo(int numberOfWayBill);
 
