@@ -12,7 +12,7 @@ public class Repo implements Repostory{
     }
 
     @Override
-    public void takeBillOfLading(WayBill wayBill) {
+    public void addBillOfLading(WayBill wayBill) {
         wayBills.add(wayBill);
     }
 

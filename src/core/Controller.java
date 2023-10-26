@@ -15,7 +15,7 @@ public class Controller implements ControllerImp {
 
     @Override
     public void addWayBillToRepo(WayBill wayBill) {
-        repostory.takeBillOfLading(wayBill);
+        repostory.addBillOfLading(wayBill);
     }
 
     @Override
