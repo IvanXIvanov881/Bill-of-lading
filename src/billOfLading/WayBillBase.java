@@ -14,13 +14,21 @@ public abstract class WayBillBase implements WayBill {
 
     public String toLocation;
 
+    private double priceIndex;
 
-    public WayBillBase(String numberOfWayBill, double kilograms, double volume, String sendLocation, String toLocation) {
+    public WayBillBase(String numberOfWayBill, double kilograms, double volume, String sendLocation, String toLocation, double priceIndex) {
         setNumberOfWayBill(numberOfWayBill);
         setKilograms(kilograms);
         setVolume(volume);
         setCurrentLocation(sendLocation);
         setToLocation(toLocation);
+        setPriceIndex(priceIndex);
+
+    }
+
+
+    protected void setPriceIndex(double priceIndex) {
+        this.priceIndex = priceIndex;
     }
 
     @Override
@@ -33,6 +41,10 @@ public abstract class WayBillBase implements WayBill {
         return kilograms;
     }
 
+    @Override
+    public double getPriceIndex() {
+        return priceIndex;
+    }
     @Override
     public String getSendFrom() {
         return currentLocation;

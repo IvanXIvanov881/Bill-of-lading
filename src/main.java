@@ -74,10 +74,12 @@ public class main {
                     double totalPrice = controller.sumOfAll();
                     System.out.printf("Сума: %.2fлв.\n",totalPrice);
                     System.out.println();
+                    break;
                 case "6":
                     int totalWayBills = controller.getStatistics();
                     System.out.printf("Брой създадени товарителници: %d.\n",totalWayBills);
                     System.out.println();
+                    break;
                 case "7":
                     System.out.println("Моля въведете номер на товарителницата:");
                     String numberInput5 = scanner.nextLine();

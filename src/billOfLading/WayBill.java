@@ -8,6 +8,8 @@ public interface WayBill {
 
     double getVolume();
 
+    double getPriceIndex();
+
     String getSendFrom();
 
     String getToDelivery();
@@ -15,4 +17,6 @@ public interface WayBill {
     String getStatistics();
 
     void setToLocation(String newLocation);
+
+
 }

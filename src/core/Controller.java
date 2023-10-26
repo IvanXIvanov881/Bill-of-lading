@@ -63,14 +63,13 @@ public class Controller implements ControllerImp {
 
     @Override
     public double sumOfAll() {
-        double fixPrice = 0.30;
-        double sumOfVolume = 0;
-        double sumOfKilograms = 0;
+        double total = 0;
+
         for (WayBill wbToSum: repostory.getAllWaybills()) {
-            sumOfVolume+=wbToSum.getVolume();
-            sumOfKilograms+=wbToSum.getKilograms();
+
+            total+= (wbToSum.getKilograms() + wbToSum.getVolume()) * wbToSum.getPriceIndex();
         }
-        double total=(fixPrice * (sumOfVolume + sumOfKilograms)) * 0.50;
+
         return total;
     }
 
