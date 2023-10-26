@@ -8,7 +8,7 @@ public interface Repostory {
 
     void addLadingBill(WayBill wayBill);
 
-    boolean removeLadingBill(String num);
+    boolean removeLadingBill(String codeToRemove);
 
     double getTotalVolume();
 

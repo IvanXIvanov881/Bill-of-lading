@@ -1,11 +1,7 @@
 package core;
-
 import billOfLading.WayBill;
 import repostory.Repo;
 import repostory.Repostory;
-
-import java.util.List;
-
 import static common.ExceptionMessages.INCORRECT_NUMBER;
 
 public class Controller implements ControllerImp{
@@ -23,7 +19,16 @@ public class Controller implements ControllerImp{
     }
 
     @Override
-    public String getWayBill(String codeOfBill) {
+    public WayBill getWayBill(String codeOfBill) {
+        for (WayBill wbNumber: repostory.getAllWaybills()) {
+            if (wbNumber.getNumber().equals(codeOfBill)){
+                return wbNumber;
+            }
+        }
+        throw new IllegalArgumentException(INCORRECT_NUMBER);
+    }
+
+    public String getWayStatistic(String codeOfBill) {
         for (WayBill wbNumber: repostory.getAllWaybills()) {
             if (wbNumber.getNumber().equals(codeOfBill)){
                 return wbNumber.getStatistics();

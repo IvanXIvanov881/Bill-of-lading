@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static common.ExceptionMessages.INCORRECT_NUMBER;
-
 public class Repo implements Repostory{
 
     private Collection<WayBill> wayBills;
@@ -21,9 +19,9 @@ public class Repo implements Repostory{
     }
 
     @Override
-    public boolean removeLadingBill(String num) {
+    public boolean removeLadingBill(String codeToRemove) {
         for (WayBill wb: wayBills) {
-            if (num.equals(wb.getNumber())){
+            if (codeToRemove.equals(wb.getNumber())){
                 wayBills.remove(wb);
                 return true;
             }

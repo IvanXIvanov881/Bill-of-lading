@@ -7,7 +7,9 @@ public interface ControllerImp {
 
     String addWayBillToRepo(WayBill wayBill);
 
-    String getWayBill(String codeOfBill);
+    WayBill getWayBill(String codeOfBill);
+
+    public String getWayStatistic(String codeOfBill);
 
     int removeWayBillFromRepo(int numberOfWayBill);
 

@@ -57,19 +57,21 @@ public class main {
                 case "2":
                     System.out.println("Моля въведете номер на товарителницата:");
                     String numberInput2 = scanner.nextLine();
-                    System.out.println(controller.getWayBill(numberInput2));
+                    System.out.println(controller.getWayStatistic(numberInput2));
                     break;
                 case "3":
                     System.out.println("Моля въведете номер на товарителницата:");
                     String numberInput3 = scanner.nextLine();
-                    String currentLocation = controller.getStatistics();
-                    System.out.printf("Текущата локация на товарителница номер:%s е: %s%n",numberInput3,currentLocation);
+                    String currentLocation = controller.getWayBill(numberInput3).getSendFrom();
+                    System.out.printf("Текущата локация на товарителница номер:%s е %s%n",numberInput3,currentLocation);
                     break;
                 case "4":
                     System.out.println("Моля въведете номер на товарителницата:");
                     String numberInput4 = scanner.nextLine();
+                    System.out.println("Пренасочване на товарителница към: ");
                     String newLocation = scanner.nextLine();
-                    //repostory.getWayBill(Integer.parseInt(numberInput4)).setToLocation(newLocation);
+                    controller.getWayBill(numberInput4).setToLocation(newLocation);
+                    System.out.printf("Вие успешно пренасочихте товарителница номер:%s към %s%n",numberInput4,newLocation);
                     break;
                 case "5":
                     Calculator calculator = new PriceCalculator();
