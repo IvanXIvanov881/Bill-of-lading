@@ -1,19 +1,12 @@
 package billOfLading;
-
 import static common.ExceptionMessages.INCORRECT;
-
 public abstract class WayBillBase implements WayBill {
 
     private String numberOfWayBill;
-
     private double kilograms;
-
     private double volume;
-
     public String currentLocation;
-
     public String toLocation;
-
     private double priceIndex;
 
     public WayBillBase(String numberOfWayBill, double kilograms, double volume, String sendLocation, String toLocation, double priceIndex) {
@@ -25,8 +18,6 @@ public abstract class WayBillBase implements WayBill {
         setPriceIndex(priceIndex);
 
     }
-
-
     protected void setPriceIndex(double priceIndex) {
         this.priceIndex = priceIndex;
     }
@@ -60,7 +51,6 @@ public abstract class WayBillBase implements WayBill {
     }
 
     protected void setNumberOfWayBill(String numberOfWayBill) {
-
         this.numberOfWayBill = numberOfWayBill;
     }
 
@@ -74,7 +64,6 @@ public abstract class WayBillBase implements WayBill {
     public void setCurrentLocation(String currentLocation) {
                 this.currentLocation = currentLocation;
     }
-
     @Override
     public void setToLocation(String newLocation) {
         toLocation= newLocation;
@@ -100,5 +89,4 @@ public abstract class WayBillBase implements WayBill {
 
         return sb.toString().trim();
     }
-
 }

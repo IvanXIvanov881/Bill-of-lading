@@ -2,7 +2,6 @@ package core;
 import billOfLading.WayBill;
 import repostory.Repo;
 import repostory.Repostory;
-
 import static common.ExceptionMessages.INCORRECT_NUMBER;
 
 public class ControllerImp implements Controller {
@@ -63,11 +62,20 @@ public class ControllerImp implements Controller {
     public double sumOfAll() {
         double total = 0;
 
+        //до 1 кг = 5лв.
+        //до 10кг = 10лв.
+        //над 10кг = килограмите + обема * фиксираният ценовият индекс спрямо чуплив или нечуплив е обекта
+
         for (WayBill wbToSum: repostory.getAllWaybills()) {
 
-            total+= (wbToSum.getKilograms() + wbToSum.getVolume()) * wbToSum.getPriceIndex();
+            if (wbToSum.getKilograms()<=1){
+                total+=5;
+            } else if (wbToSum.getKilograms()>1 && wbToSum.getKilograms()<=10){
+                total+=10;
+            } else {
+                total+= (wbToSum.getKilograms() + wbToSum.getVolume()) * wbToSum.getPriceIndex();
+            }
         }
-
         return total;
     }
 

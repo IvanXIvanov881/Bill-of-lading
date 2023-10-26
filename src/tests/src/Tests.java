@@ -45,6 +45,4 @@ public class Tests {
         controllerImp.addWayBillToRepo(wayBill);
         controllerImp.getWayStatistic("DDD");
     }
-
-
 }
