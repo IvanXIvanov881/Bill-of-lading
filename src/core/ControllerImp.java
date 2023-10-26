@@ -4,7 +4,6 @@ import billOfLading.WayBill;
 
 public interface ControllerImp {
 
-
     void addWayBillToRepo(WayBill wayBill);
 
     boolean removeWayBillToRepo(String codeOfWayBill);
