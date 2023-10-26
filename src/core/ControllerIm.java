@@ -2,7 +2,7 @@ package core;
 
 import billOfLading.WayBill;
 
-public interface ControllerImp {
+public interface ControllerIm {
 
     void addWayBillToRepo(WayBill wayBill);
 

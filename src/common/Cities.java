@@ -7,6 +7,8 @@ public enum Cities {
     Burgas,
     Ruse,
     Plovdiv,
-    Sofia;
+    Sofia,
+    Shumen;
 
+    //not using for now
 }

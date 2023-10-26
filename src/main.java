@@ -2,11 +2,11 @@ import billOfLading.FragileLoad;
 import billOfLading.UnbreakableLoad;
 import billOfLading.WayBill;
 import core.Controller;
-
 import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
+
 
         Scanner scanner = new Scanner(System.in);
 

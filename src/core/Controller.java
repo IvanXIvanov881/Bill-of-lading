@@ -5,7 +5,7 @@ import repostory.Repostory;
 
 import static common.ExceptionMessages.INCORRECT_NUMBER;
 
-public class Controller implements ControllerImp {
+public class Controller implements ControllerIm {
 
     private Repostory repostory;
 
