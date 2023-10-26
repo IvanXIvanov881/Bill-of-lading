@@ -5,13 +5,7 @@ import java.util.Collection;
 
 public interface Repostory {
 
-    void addLadingBill(WayBill wayBill);
-
-    void removeLadingBill(WayBill wayBill);
-
-    double getTotalVolume();
-
-    double getTotalKilograms();
+    void takeBillOfLading(WayBill wayBill);
 
     Collection<WayBill> getAllWaybills();
 }

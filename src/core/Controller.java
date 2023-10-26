@@ -1,5 +1,4 @@
 package core;
-
 import billOfLading.WayBill;
 import repostory.Repo;
 import repostory.Repostory;
@@ -15,9 +14,8 @@ public class Controller implements ControllerImp {
     }
 
     @Override
-    public String addWayBillToRepo(WayBill wayBill) {
-        repostory.addLadingBill(wayBill);
-        return String.format("Uspeshno.\n");
+    public void addWayBillToRepo(WayBill wayBill) {
+        repostory.takeBillOfLading(wayBill);
     }
 
     @Override
@@ -75,7 +73,6 @@ public class Controller implements ControllerImp {
 
     @Override
     public int getStatistics() {
-        int t = repostory.getAllWaybills().size();
-        return t;
+        return repostory.getAllWaybills().size();
     }
 }

@@ -35,12 +35,10 @@ public abstract class WayBillBase implements WayBill {
     public String getNumber() {
         return numberOfWayBill;
     }
-
     @Override
     public double getKilograms() {
         return kilograms;
     }
-
     @Override
     public double getPriceIndex() {
         return priceIndex;
@@ -49,12 +47,7 @@ public abstract class WayBillBase implements WayBill {
     public String getSendFrom() {
         return currentLocation;
     }
-
     @Override
-    public String getToDelivery() {
-        return toLocation;
-    }
-
     public double getVolume() {
         return volume;
     }

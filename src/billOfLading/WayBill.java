@@ -12,8 +12,6 @@ public interface WayBill {
 
     String getSendFrom();
 
-    String getToDelivery();
-
     String getStatistics();
 
     void setToLocation(String newLocation);

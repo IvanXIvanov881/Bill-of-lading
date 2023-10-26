@@ -1,9 +1,7 @@
 package repostory;
-
 import billOfLading.WayBill;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class Repo implements Repostory{
 
@@ -14,32 +12,8 @@ public class Repo implements Repostory{
     }
 
     @Override
-    public void addLadingBill(WayBill wayBill) {
+    public void takeBillOfLading(WayBill wayBill) {
         wayBills.add(wayBill);
-    }
-
-    @Override
-    public void removeLadingBill(WayBill wayBill) {
-        wayBills.remove(wayBill);
-    }
-
-
-    @Override
-    public double getTotalVolume() {
-        double totalVolume = 0;
-        for (WayBill wbVolume: wayBills) {
-            totalVolume+=wbVolume.getVolume();
-        }
-        return totalVolume;
-    }
-
-    @Override
-    public double getTotalKilograms() {
-        double totalKilograms = 0;
-        for (WayBill wbKilograms: wayBills) {
-            totalKilograms+=wbKilograms.getKilograms();
-        }
-        return totalKilograms;
     }
 
     @Override
