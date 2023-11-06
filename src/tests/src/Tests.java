@@ -5,6 +5,7 @@ import core.ControllerImp;
 import org.junit.Assert;
 import org.junit.Test;
 
+
 public class Tests {
 
     @Test
@@ -15,7 +16,7 @@ public class Tests {
         Assert.assertEquals(1, controllerImp.getStatistics());
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testNegativeVolume(){
         ControllerImp controllerImp = new ControllerImp();
         WayBill wayBill = new FragileLoad("A123", 20, -30, "Dobrich", "Varna");
